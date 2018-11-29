@@ -1,0 +1,8 @@
+- name: Create script to obtain data from the database
+  shell: mysql -u root --password={{ password }} --database=runahr -e 'SELECT * FROM Lead' > salida.json
+  tasks: mysqlL
+    #mysql -u root --password={{ password }} --database=runahr \ -e 'SELECT * FROM Lead' | sed  's/\t/,/g' > salida.csv
+
+- name: Export data obtain
+  shell: sshpass -p runabot scp lucas_torres@18.218.51.16:/home/lucas_torres/salida.json ../salida.json
+  tasks: downloadL
