@@ -1,14 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('develop') {
             steps {
                 echo 'ambiente de test'
             }
         }
-        stage('Staging') {
+        stage('testingQA') {
             steps {
                 echo 'ambiente staging'
+            }
+        }
+        stage('production'){
+            steps {
+                echo 'ambiente de pase a producción'
             }
         }
     }
